@@ -9012,3 +9012,8 @@ body[data-iris-appearance="apple"] #authorNoticeDialog .author-notice-confirm{bo
 body[data-iris-appearance="apple"] #authorNoticeDialog .author-notice-confirm input{appearance:none;flex:none;width:18px;height:18px;border:1px solid #c7c7cc;border-radius:50%;background:#fff}
 body[data-iris-appearance="apple"] #authorNoticeDialog .author-notice-confirm input:checked{border:5px solid #222}
 body[data-iris-appearance="apple"] #authorNoticeDialog .author-notice-next{border-radius:12px}
+
+/* Deployment actions share the row equally, regardless of label length. */
+.deploy-bottom .deploy-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));flex-wrap:nowrap}
+.deploy-bottom .deploy-actions>button{box-sizing:border-box;width:100%;min-width:0;min-height:38px;margin:0;white-space:normal}
+.deploy-bottom .deploy-actions>button:only-child{grid-column:1/-1}
