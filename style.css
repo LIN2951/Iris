@@ -9109,3 +9109,81 @@ body[data-iris-appearance="apple"] :is(#profileDialog,#characterDialog) :is(.pro
 body[data-iris-appearance="apple"] :is(#profileDialog,#characterDialog) :is(.profile-user-select,.character-row-main){flex:1 0 100%;width:100%}
 body[data-iris-appearance="apple"] :is(#profileDialog,#characterDialog) :is(.profile-user-edit,.profile-phone-action,.profile-roster-delete,.character-phone-action,.character-row-delete){flex:0 0 auto;min-height:30px;margin:0;padding:5px 10px;white-space:nowrap}
 body[data-iris-appearance="apple"] :is(#profileDialog,#characterDialog) .profile-phone-editor{flex:1 0 100%;box-sizing:border-box;min-width:0}
+
+/* Five business destinations each occupy one fifth of the full bar. */
+body[data-iris-appearance="apple"] #featureScreen.apple-business .perfumery-dock{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:0!important}
+body[data-iris-appearance="apple"] #featureScreen.apple-business .perfumery-dock>.perfumery-dock-capsule{display:contents!important}
+body[data-iris-appearance="apple"] #featureScreen.apple-business .perfumery-dock :is(.perfumery-dock-tab,.perfumery-dock-add){box-sizing:border-box;width:100%!important;min-width:0!important;max-width:none!important;margin:0!important;justify-self:stretch;flex:none!important}
+.market-mine-label{display:none}
+#featureScreen.apple-market .market-nav .market-mine-label{display:block;font-size:9px;line-height:1.3}
+#featureScreen.apple-forum .ng-forum-member-head>.forum-member-post-link{flex:none;min-height:30px;margin:0;padding:5px 8px;border:0;border-radius:15px;background:#eaf3ff;color:#007aff;font-size:11px;white-space:nowrap}
+#featureScreen.apple-forum .ng-forum-member-head>.forum-member-details{flex:1;min-width:0}
+/* Roster actions stay on the right; the list itself remains scrollable. */
+body[data-iris-appearance="apple"] :is(#profileDialog,#characterDialog) :is(.character-list,.profile-roster){max-height:min(58dvh,480px);overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y}
+body[data-iris-appearance="apple"] :is(#profileDialog,#characterDialog) :is(.profile-user-row,.character-row){display:flex;flex-wrap:nowrap;align-items:center;gap:5px;min-width:0}
+body[data-iris-appearance="apple"] :is(#profileDialog,#characterDialog) :is(.profile-user-select,.character-row-main){flex:1 1 0;width:auto;min-width:0}
+body[data-iris-appearance="apple"] :is(#profileDialog,#characterDialog) :is(.profile-user-edit,.profile-phone-action,.profile-roster-delete,.character-phone-action,.character-row-delete){flex:0 0 auto;padding:5px 6px;font-size:10px}
+body[data-iris-appearance="apple"] :is(#profileDialog,#characterDialog) :is(.profile-user-info,.character-row-info){min-width:0}
+body[data-iris-appearance="apple"] :is(#profileDialog,#characterDialog) .profile-user-current:empty{display:none}
+body[data-iris-appearance="apple"] #profileDialog .profile-user-row:has(.profile-phone-editor){flex-wrap:wrap}
+body[data-iris-appearance="apple"] #profileDialog .profile-user-row:has(.profile-phone-editor)>.profile-user-select{flex:1 1 0}
+/* The two upper profile cards share the same height; right-hand fields form one group. */
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm){gap:0 12px;grid-template-columns:minmax(94px,.8fr) minmax(0,1.4fr)}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm)>.profile-identity{border-radius:18px;align-self:stretch;padding:14px 8px}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .profile-fields label:not(.details-note){display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:48px;padding:8px 10px;border-radius:0;font-size:11px;white-space:nowrap}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .profile-fields label:has([name="name"]){border-radius:14px 14px 0 0}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .profile-fields label:has([name="birthday"]){border-radius:0 0 14px 14px}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .profile-fields label:not(.details-note)>:is(input,select){flex:1;min-width:0;width:0;margin:0;padding:5px 0;border:0;background:transparent;text-align:right;font-size:12px}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .profile-fields label.details-note{margin-top:12px}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm)>.profile-pagination{margin-top:12px}
+
+/* Equal-sized profile panels share one grid row. */
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm){display:block}
+body[data-iris-appearance="apple"] .ng-profile-editor-top{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:12px;min-width:0}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .ng-profile-editor-top>.profile-identity{grid-column:auto;grid-row:auto;box-sizing:border-box;width:100%;min-width:0;height:auto;min-height:216px;margin:0;border-radius:16px;align-self:stretch}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .ng-profile-editor-top>.profile-fields{display:flex;flex-direction:column;box-sizing:border-box;width:100%;min-width:0;gap:0;margin:0;padding:0 10px;border-radius:16px;background:#fff;overflow:hidden}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .ng-profile-editor-top .profile-demographics{display:contents}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .ng-profile-editor-top .profile-fields label{display:flex;flex:1;align-items:center;box-sizing:border-box;width:100%;min-height:54px;margin:0;padding:8px 0;border:0;border-bottom:1px solid #ededf1;border-radius:0;background:transparent}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .ng-profile-editor-top .profile-fields label:has([name="birthday"]){border-bottom:0}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm)>.details-note{display:block;box-sizing:border-box;width:100%;margin:12px 0 0;padding:12px;border:0;border-radius:16px;background:#fff;font-size:11px;transform:none}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm)>.details-note>span{display:none}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm)>.details-note textarea{box-sizing:border-box;display:block;width:100%;margin-top:8px;padding:8px 0;border:0;background:transparent;font-family:inherit;font-size:12px;line-height:1.7}
+body[data-iris-appearance="apple"] #featureScreen.apple-business .perfumery-dock :is(.perfumery-dock-tab,.perfumery-dock-add).is-active{color:#303c50!important;background:transparent!important}
+body[data-iris-appearance="apple"] #featureScreen.apple-business .perfumery-dock :is(.perfumery-dock-tab,.perfumery-dock-add)>svg{box-sizing:content-box;width:21px;height:21px;padding:4px;border:0;border-radius:50%;background:transparent;stroke-width:1.5}
+body[data-iris-appearance="apple"] #featureScreen.apple-business .perfumery-dock :is(.perfumery-dock-tab,.perfumery-dock-add).is-active>svg{background:#e8ecf2!important}
+
+/* Profile identity is a vertical stack; values begin beside their labels. */
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .ng-profile-editor-top>.profile-identity{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .ng-profile-editor-top .profile-preview{display:flex;flex-direction:column;align-items:center;gap:5px;width:100%;text-align:center}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .ng-profile-editor-top .profile-preview>:is(.profile-number,#profileBoundRoleCount){display:none}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .ng-profile-editor-top .profile-preview>:is(h3,p,button){position:static;max-width:100%;margin:0;transform:none;white-space:normal;overflow-wrap:anywhere}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .ng-profile-editor-top .profile-fields label{justify-content:flex-start;gap:8px}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .ng-profile-editor-top .profile-fields label>:is(input,select){text-align:left;flex:1;min-width:0;margin:0;padding:5px 0}
+
+/* Keep character management chrome fixed; only its roster scrolls. */
+body[data-iris-appearance="apple"] #characterDialog[open]:has(>.character-list){display:flex;flex-direction:column;box-sizing:border-box;height:min(680px,calc(100dvh - 28px));max-height:calc(100dvh - 28px);overflow:hidden}
+body[data-iris-appearance="apple"] #characterDialog:has(>.character-list)>:not(.character-list){flex:none}
+body[data-iris-appearance="apple"] #characterDialog:has(>.character-list)>.character-list{flex:1 1 0;min-height:0;max-height:none;margin:6px 0 12px;overflow-x:hidden;overflow-y:auto;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y}
+body[data-iris-appearance="apple"] #characterDialog:has(>.character-list)>.character-import-actions{margin-top:0}
+body[data-iris-appearance="apple"] #characterDialog:has(>.character-list)>.character-header-arrange{margin-top:8px}
+body[data-iris-appearance="apple"] #characterDialog:has(>.character-list)>:is(.character-formats,.character-feedback){margin:6px 0 0}
+
+/* Ningguang deployment choices and forum member controls. */
+body[data-iris-appearance="apple"] .deploy-page .deploy-service-choice:checked{border-color:#007aff;background:radial-gradient(circle,#007aff 0 5px,#fff 5.5px);accent-color:#007aff}
+#featureScreen.apple-forum .ng-forum-member-head>.forum-npc-toggle{display:inline-flex;align-items:center;justify-content:center;flex:none;min-height:30px;margin:0;padding:5px 12px;border:0;border-radius:15px;background:#eaf3ff;color:#007aff;font-family:inherit;font-size:11px;line-height:20px;box-shadow:none;white-space:nowrap}
+
+.deploy-repository{margin:0 0 20px;padding:14px;border:1px solid #ededf1;border-radius:14px;background:#fff}
+.deploy-repository h3{margin:0 0 8px;color:#333;font-size:14px;font-weight:600;line-height:1.5}
+.deploy-repository p{margin:8px 0;color:#888;font-size:12px;line-height:1.7}
+.deploy-repository-links{display:flex;flex-wrap:wrap;gap:8px 14px;margin:10px 0}
+.deploy-page .deploy-repository-links a{font-size:12px;line-height:1.6;overflow-wrap:anywhere}
+#settingsScreen:not(.apple-settings) .deploy-repository{padding:12px 0;border:0;border-bottom:1px solid #ededed;border-radius:0;background:transparent}
+
+/* Place character chat categories directly below the management title. */
+body[data-iris-appearance="apple"] #characterDialog:has(>.character-conversation-tabs)>.profile-title-row{margin-bottom:4px}
+body[data-iris-appearance="apple"] #characterDialog>.character-conversation-tabs{margin-top:0;margin-bottom:0;min-height:34px}
+body[data-iris-appearance="apple"] #characterDialog>.character-conversation-tabs>button{padding-top:5px;padding-bottom:5px;min-height:32px}
+
+.version-repository{margin:12px 0;padding:0;border:1px solid #ededf1;border-radius:12px;background:#fff}
+.version-repository>a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px;color:#007aff;font-size:13px;text-decoration:none}
+.release-repository-link{display:inline-block;margin:10px 0;color:#007aff;font-size:12px;line-height:1.7;text-decoration:none}

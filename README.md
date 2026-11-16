@@ -1,6 +1,6 @@
 # Iris小手机
 
-Iris小手机正式版。前端可通过 GitHub Pages 部署，后端可在小手机内一键搭建。
+Iris小手机 6.0.0 正式版。前端可通过 GitHub Pages 部署，后端可在小手机内一键搭建。
 
 [打开 Iris小手机](https://weishengrongqing-commits.github.io/Iris/) · [Fork 仓库](https://github.com/weishengrongqing-commits/Iris/fork)
 
