@@ -9078,3 +9078,34 @@ body[data-iris-appearance="apple"] #authorNoticeDialog .author-notice-next{borde
 #featureScreen.apple-forum .forum-member-participation-body .forum-permissions input{width:32px;height:20px;min-width:32px;min-height:20px;flex:0 0 32px}
 #featureScreen.apple-forum .forum-member-participation-body .forum-permissions input::after{width:16px;height:16px;top:2px;left:2px}
 #featureScreen.apple-forum .forum-member-participation-body .forum-permissions input:checked::after{left:14px}
+
+/* Product categories are a horizontal scroller, rather than equal-width tabs. */
+body[data-iris-appearance="apple"] #featureScreen.apple-market :is(.market-categories,.market-category-pills).iris-category-group{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;gap:6px!important;overflow-x:auto!important;overflow-y:hidden!important;scrollbar-width:none;padding:6px 0!important;overscroll-behavior-x:contain}
+body[data-iris-appearance="apple"] #featureScreen.apple-market :is(.market-categories,.market-category-pills).iris-category-group>button.iris-category-cell{flex:0 0 auto!important;width:auto!important;min-width:max-content!important;min-height:34px!important;padding:6px 12px!important;white-space:nowrap!important;word-break:normal!important;overflow-wrap:normal!important;border:0!important;border-radius:18px!important;background:transparent;color:#777}
+body[data-iris-appearance="apple"] #featureScreen.apple-market :is(.market-categories,.market-category-pills)>button:is(.is-active,.active,[aria-pressed="true"]){background:#eaf3ff!important;color:#007aff!important}
+#featureScreen.apple-sms>.feature-page-topbar,#featureScreen.apple-sms:has(.sms-inbox)>.feature-page-topbar{box-sizing:border-box;min-height:60px;height:auto;margin:0;padding:8px 16px;border-bottom:1px solid #ededf1}
+#featureScreen.apple-sms .sms-feature-heading .feature-page-brand{min-height:40px}
+#featureScreen.apple-sms .sms-feature-heading .feature-page-wordmark{font-size:18px;line-height:24px}
+
+/* Profile editor: portrait capsule at left, four straight fields at right. */
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm){display:grid;grid-template-columns:minmax(94px,.8fr) minmax(0,1.4fr);gap:10px 12px;align-items:stretch}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm)>.profile-identity{grid-column:1;grid-row:1/5;display:flex;flex-direction:column;justify-content:center;align-items:center;box-sizing:border-box;width:100%;height:auto;min-height:0;margin:0;padding:16px 8px;gap:12px;border-radius:50px;background:#fff}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .portrait-control{position:relative;inset:auto;flex:none;width:72px;height:72px;margin:0;transform:none}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .profile-portrait{box-sizing:border-box;width:72px;height:72px;margin:0;border-radius:50%;transform:none}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .profile-preview{position:static;width:100%;text-align:center;transform:none}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .profile-preview h3{font-size:15px;overflow-wrap:anywhere}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .profile-preview p{margin:4px 0;overflow-wrap:anywhere}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .profile-preview button{margin:6px 0 0;padding:5px 7px;color:#007aff;font-size:11px}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .profile-fields,body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .profile-demographics{display:contents}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .profile-fields label{position:static;grid-column:2;box-sizing:border-box;min-width:0;width:100%;margin:0;padding:9px 10px;border:0;border-radius:12px;background:#fff;transform:none;rotate:none;box-shadow:none;font-size:11px}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .profile-fields label:has([name="name"]){grid-row:1}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .profile-fields label:has([name="nickname"]){grid-row:2}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .profile-fields label:has([name="gender"]){grid-row:3}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .profile-fields label:has([name="birthday"]){grid-row:4}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .profile-fields label.details-note{grid-column:1/-1;grid-row:5;padding:12px;border-radius:14px}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm) .profile-fields :is(input,select,textarea){position:static;box-sizing:border-box;width:100%;min-width:0;margin:5px 0 0;padding:6px 0;border:0;border-bottom:1px solid #ededf1;border-radius:0;background:transparent;transform:none;rotate:none;box-shadow:none;font-family:inherit;font-size:12px}
+body[data-iris-appearance="apple"] :is(#profileForm,#characterForm)>:is(.profile-pagination,.profile-save-actions,.profile-footnote,.character-feedback){grid-column:1/-1}
+body[data-iris-appearance="apple"] :is(#profileDialog,#characterDialog) :is(.profile-user-row,.character-row){display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+body[data-iris-appearance="apple"] :is(#profileDialog,#characterDialog) :is(.profile-user-select,.character-row-main){flex:1 0 100%;width:100%}
+body[data-iris-appearance="apple"] :is(#profileDialog,#characterDialog) :is(.profile-user-edit,.profile-phone-action,.profile-roster-delete,.character-phone-action,.character-row-delete){flex:0 0 auto;min-height:30px;margin:0;padding:5px 10px;white-space:nowrap}
+body[data-iris-appearance="apple"] :is(#profileDialog,#characterDialog) .profile-phone-editor{flex:1 0 100%;box-sizing:border-box;min-width:0}
