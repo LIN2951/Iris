@@ -8,7 +8,7 @@
   "vars": {
     "PUBLIC_URL": "https://iris-deploy.weishengrongqing.workers.dev",
     "CF_CLIENT_ID": "cd633e8f6ca6c40f29e4be32bf0559d5",
-    "CF_OAUTH_SCOPES": "account-settings.read workers-scripts.edit workers-kv-storage.write workers-routes.write zone.read"
+    "CF_OAUTH_SCOPES": "account-settings.read workers-scripts.write workers-kv-storage.write workers-routes.write zone.read"
   },
   "durable_objects": {
     "bindings": [

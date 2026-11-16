@@ -1,14 +1,14 @@
 import bundles from './service-bundles.json' with {type:'json'};
 import {random,digest,seal,open,validName,validDomain,returnAddress,sameSecret,secrets,metadata,multipart,publicSession,authorizationURL,challenge,safeOrigin} from './core.mjs';
 const DAY=86400000,ID=/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
-const json=(data,status=200)=>Response.json(data,{status,headers:{'cache-control':'no-store','x-content-type-options':'nosniff','referrer-policy':'no-referrer'}});
+const json=(data,status=200)=>Response.json(data,{status,headers:{'content-type':'application/json; charset=utf-8','cache-control':'no-store','x-content-type-options':'nosniff','referrer-policy':'no-referrer'}});
 const configured=env=>Boolean(env.CF_CLIENT_ID&&env.DEPLOY_VAULT_KEY&&env.SESSIONS&&env.PUBLIC_URL&&env.CF_OAUTH_SCOPES);
 async function body(request){if(!request.body)return {};const reader=request.body.getReader(),decoder=new TextDecoder();let raw='',size=0;while(true){const {value,done}=await reader.read();if(done)break;size+=value.byteLength;if(size>8192){await reader.cancel();throw Error('请求过长')}raw+=decoder.decode(value,{stream:true})}return JSON.parse(raw+decoder.decode()||'{}')}
 function cors(response,origin){const headers=new Headers(response.headers);if(origin){headers.set('access-control-allow-origin',origin);headers.set('vary','Origin')}headers.set('access-control-allow-methods','GET,POST,OPTIONS');headers.set('access-control-allow-headers','Authorization,Content-Type');return new Response(response.body,{status:response.status,headers})}
 const stub=(env,id)=>env.SESSIONS.get(env.SESSIONS.idFromName(id));
 export default {async fetch(request,env){const url=new URL(request.url),origin=safeOrigin(request.headers.get('origin'));try{
  if(url.pathname==='/health')return cors(json({protocol:1,ready:configured(env)}),origin);
- if(url.pathname==='/oauth/callback'){if(!configured(env))return json({error:'维护者尚未完成 Cloudflare 授权配置'},503);const state=url.searchParams.get('state')||'',id=state.split('.')[0];if(!ID.test(id))return json({error:'授权返回无效，请从小手机重新连接'},400);return await stub(env,id).fetch(new Request('https://internal/callback',{method:'POST',body:JSON.stringify({state,code:url.searchParams.get('code'),error:url.searchParams.get('error')})}))}
+ if(url.pathname==='/oauth/callback'){if(!configured(env))return json({error:'维护者尚未完成 Cloudflare 授权配置'},503);const state=url.searchParams.get('state')||'',id=state.split('.')[0];if(!ID.test(id))return json({error:'授权返回无效，请从小手机重新连接'},400);return await stub(env,id).fetch(new Request('https://internal/callback',{method:'POST',redirect:'manual',body:JSON.stringify({state,code:url.searchParams.get('code'),error:url.searchParams.get('error')})}))}
  if(!origin)return json({error:'请从 HTTPS 小手机页面访问部署服务'},403);
  if(request.method==='OPTIONS')return cors(new Response(null,{status:204}),origin);
  if(!configured(env))return cors(json({error:'Iris 公共部署服务尚未完成授权配置，请联系维护者。'},503),origin);
