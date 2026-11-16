@@ -8910,8 +8910,8 @@ body[data-iris-appearance="apple"] .deploy-row .deploy-service-choice:checked{bo
 
 /* Category language and URL-loaded English script face, shared by both appearances. */
 @font-face{font-family:"Iris Category Script";src:url("assets/fonts/great-vibes/great-vibes-regular.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
-body[data-category-language="en"] .iris-category-label,body[data-category-language="en"] .iris-category-label :is(span,strong,small){font-family:"Iris Category Script","Great Vibes",cursive!important;font-weight:400!important;font-style:normal;letter-spacing:.2px}
-body[data-category-language="en"] .iris-category-label{font-size:18px!important;line-height:1.25}
+body[data-category-language="en"] .iris-category-label,body[data-category-language="en"] .iris-category-label :is(span,strong,small){font-family:"Iris Category Script","Great Vibes",cursive!important;font-weight:400!important;font-style:normal;letter-spacing:.1px}
+body[data-category-language="en"] .iris-category-label{font-size:clamp(10px,3.3vw,14px)!important;line-height:1.2}
 body[data-category-language="zh"] .iris-category-label{font-style:normal}
 #settingsScreen:not(.apple-settings) .system-setting-tabs{display:flex;flex-wrap:nowrap;align-items:stretch;gap:0;overflow-x:auto}
 #settingsScreen:not(.apple-settings) .system-setting-tabs>button{flex:1 0 0;min-width:0;padding-right:3px;padding-left:3px}
@@ -8925,7 +8925,7 @@ body[data-category-language="zh"] .iris-category-label{font-style:normal}
 #settingsScreen:not(.apple-settings) .deploy-row input[type=checkbox]{accent-color:#333}
 #settingsScreen:not(.apple-settings) .deploy-page a{color:#555}
 #settingsScreen:not(.apple-settings) .deploy-steps li.current{color:#333}
-body[data-category-language="en"] #settingsScreen:not(.apple-settings) .system-setting-tabs>.iris-category-label{font-size:clamp(14px,3.8vw,18px)!important}
+body[data-category-language="en"] #settingsScreen:not(.apple-settings) .system-setting-tabs>.iris-category-label{font-size:clamp(10px,3vw,13px)!important}
 #settingsScreen:not(.apple-settings) .system-setting-tabs>.system-setting-tab{flex:1 1 0;min-width:0}
 
 /* Keep settings category labels fully visible on narrow phone layouts. */
@@ -8944,17 +8944,19 @@ body[data-category-language="en"] #settingsScreen:not(.apple-settings) .system-s
 #settingsScreen:not(.apple-settings) .deploy-row input[type=checkbox]{accent-color:#333}
 #settingsScreen:not(.apple-settings) .deploy-page :is(a,.deploy-steps li.current,.deploy-steps li.done){color:#555}
 #settingsScreen:not(.apple-settings) .deploy-steps li span{border-radius:3px;background:#f3f3f3}
-body[data-category-language="en"] .ng-sidebar .iris-category-label{font-size:16px!important}
-body[data-category-language="en"] .ng-sidebar .iris-category-label>span:last-child{max-width:100%;overflow-wrap:anywhere;line-height:1.2}
+body[data-category-language="en"] .ng-sidebar .iris-category-label{font-size:10px!important}
+body[data-category-language="en"] .ng-sidebar .iris-category-label>span:last-child{max-width:100%;overflow-wrap:anywhere;line-height:1.15}
 
-/* Language changes text, never category slot sizes or spacing. */
-body[data-category-language] .iris-category-group[data-category-axis="horizontal"]{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;align-items:stretch!important;box-sizing:border-box;width:100%!important;max-width:100%;min-width:0;gap:4px!important;overflow-x:auto}
-body[data-category-language] .iris-category-group[data-category-axis="horizontal"]>.iris-category-cell{display:flex!important;align-items:center!important;justify-content:center!important;box-sizing:border-box;flex:1 0 72px!important;width:72px!important;min-width:72px!important;height:40px!important;min-height:40px!important;max-height:40px;margin-left:0!important;margin-right:0!important;padding:3px 5px!important;line-height:17px!important;white-space:normal!important;overflow-wrap:anywhere;text-align:center}
-body[data-category-language] .iris-category-group[data-category-overflow="scroll"][data-category-axis="horizontal"]>.iris-category-cell{flex:0 0 96px!important;width:96px!important}
-body[data-category-language] .iris-category-group[data-category-axis="vertical"]{gap:5px!important}
-body[data-category-language] .iris-category-group[data-category-axis="vertical"]>.iris-category-cell{box-sizing:border-box;flex:none!important;width:100%!important;height:76px!important;min-height:76px!important;max-height:76px;padding:3px 0!important;gap:4px!important}
-body[data-category-language] .iris-category-group[data-category-axis="vertical"]>.iris-category-cell>span:last-child{display:flex;align-items:center;justify-content:center;min-height:30px;max-height:30px;width:100%;line-height:15px!important;text-align:center;overflow-wrap:anywhere}
+/* Category rails stay fixed and fully visible in both language settings. */
+body[data-category-language] .iris-category-group[data-category-axis="horizontal"]{display:grid!important;grid-template-columns:repeat(var(--iris-category-count,1),minmax(0,1fr))!important;grid-auto-flow:row!important;align-items:stretch!important;box-sizing:border-box;width:100%!important;max-width:100%;min-width:0;gap:4px!important;overflow:visible!important;overscroll-behavior:contain}
+body[data-category-language] .iris-category-group[data-category-axis="horizontal"]>.iris-category-cell{display:flex!important;align-items:center!important;justify-content:center!important;box-sizing:border-box;flex:none!important;width:auto!important;min-width:0!important;height:auto!important;min-height:40px!important;max-height:none!important;margin:0!important;padding:4px 2px!important;line-height:1.2!important;white-space:normal!important;overflow-wrap:anywhere;word-break:normal;text-align:center}
+body[data-category-language] .iris-category-group[data-category-axis="vertical"]{display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;gap:4px!important;overflow:hidden!important;overscroll-behavior:contain}
+body[data-category-language] .iris-category-group[data-category-axis="vertical"]>.iris-category-cell{box-sizing:border-box;flex:1 1 0!important;width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;padding:2px 0!important;gap:3px!important;white-space:normal!important}
+body[data-category-language] .iris-category-group[data-category-axis="vertical"]>.iris-category-cell>span:last-child{display:flex;align-items:center;justify-content:center;min-height:0;max-height:none;width:100%;padding:0 2px;line-height:1.15!important;text-align:center;white-space:normal!important;overflow-wrap:anywhere}
 body[data-category-language] .iris-category-group .iris-category-cell :is(span,strong,small){line-height:inherit}
+#settingsScreen.apple-settings .system-setting-tabs.iris-category-group[data-category-axis="vertical"]{overflow-x:hidden!important;overflow-y:hidden!important;scrollbar-width:none}
+#settingsScreen.apple-settings .system-setting-tabs.iris-category-group[data-category-axis="vertical"]>.system-setting-tab.iris-category-cell{flex:1 1 0!important;min-height:0!important;height:auto!important;max-height:none!important;padding:2px 0!important;gap:3px!important}
+#settingsScreen.apple-settings .system-setting-tabs.iris-category-group[data-category-axis="vertical"]>.system-setting-tab.iris-category-cell>span:last-child{min-height:0!important;max-height:none!important;padding:0 2px!important;white-space:normal!important;overflow-wrap:anywhere}
 
 /* Deployment flow: two connection paths, each with one clear primary action. */
 .deploy-section{margin:0 0 18px}

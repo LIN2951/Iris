@@ -27,7 +27,7 @@ const selectors=[
  '[data-extra-format]','[data-r-search-mode]','[data-r-drawer]','[data-earth-route-mode]','[data-people-tab]','.market-category-pills button','nav[aria-label$="分类"] button','nav[aria-label$="类别"] button',
  '[role="tab"]','[role="tablist"] button'
 ].join(',');
-const fixed={systemTab:{api:'接口',storage:'存储',background:'后台',deploy:'部署',version:'版本'},onlineTab:{user:'用户',world:'世界书',memory:'记忆',more:'设置',bookmarks:'收藏'},offlineSettingTab:{settings:'写作设置','stage-memory':'阶段记忆',records:'线下记录'}};
+const fixed={systemTab:{api:'接口',storage:'存储',background:'后台',deploy:'部署',version:'关于'},settingsRoute:{'api/chat':'接口','api/vector':'向量','storage/local':'备份','storage/github':'同步',background:'后台',deploy:'部署',version:'关于'},roleSettingsRoute:{user:'用户',world:'世界书',memory:'记忆',more:'设置',bookmarks:'收藏',settings:'写作',style:'文风',prompt:'提示词',requirements:'扩展',regex:'正则','stage-memory':'阶段记忆',records:'记录'},onlineTab:{user:'用户',world:'世界书',memory:'记忆',more:'设置',bookmarks:'收藏'},offlineSettingTab:{settings:'写作','stage-memory':'阶段记忆',records:'记录'}};
 let language='zh',observer,queued=false;const pending=new Set(),written=new WeakMap();
 function translation(text,lang=language){const clean=text.trim(),zh=Object.hasOwn(pairs,clean)?clean:reverse.get(clean);if(!zh)return text;return text.replace(clean,lang==='en'?pairs[zh]:zh)}
 function label(element){if(element.closest('[data-category-user-content]')||(element.hasAttribute('data-profile-collection')&&element.dataset.profileCollection))return;let forced='';for(const [attr,map] of Object.entries(fixed))if(map[element.dataset[attr]])forced=map[element.dataset[attr]];
@@ -41,7 +41,7 @@ function layoutGroup(button){
  const parent=button.parentElement;if(!parent||!/(?:tabs|subtabs|segments|categories|filters|sidebar|nav-capsule|dock|sections)/.test(parent.className||'')&&parent.getAttribute('role')!=='tablist'&&!parent.matches('nav[aria-label$="分类"],nav[aria-label$="类别"],nav[aria-label="搜索范围"]'))return;
  const buttons=Array.from(parent.children).filter(node=>node.tagName==='BUTTON'&&!node.hidden);if(buttons.length<2)return;
  const vertical=parent.classList.contains('ng-sidebar');
- parent.classList.add('iris-category-group');parent.dataset.categoryAxis=vertical?'vertical':'horizontal';parent.dataset.categoryOverflow=buttons.length>5?'scroll':'fit';
+ parent.classList.add('iris-category-group');parent.dataset.categoryAxis=vertical?'vertical':'horizontal';parent.dataset.categoryOverflow='fit';parent.style.setProperty('--iris-category-count',String(buttons.length));
  buttons.forEach(node=>node.classList.add('iris-category-cell'));
 }
 function scan(scope=root.document){if(scope.nodeType===3)scope=scope.parentElement;if(!scope?.querySelectorAll)return;const visit=element=>{label(element);layoutGroup(element)};if(scope.matches?.(selectors))visit(scope);scope.querySelectorAll(selectors).forEach(visit);const parent=scope.closest?.(selectors);if(parent&&parent!==scope)visit(parent)}

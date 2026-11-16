@@ -52,6 +52,7 @@ state.char=chars.length?Math.max(0,Math.min(state.char,chars.length-1)):-1;
 state.user=state.users.length?Math.max(0,Math.min(state.user,state.users.length-1)):-1;
 const initialRoleUser=chars[state.char]?.chatSettings?.userIndex;if(Number.isInteger(initialRoleUser)&&state.users[initialRoleUser])state.user=initialRoleUser;
 state.settings={apiUrl:'',apiKey:'',apiModel:'',keepAlive:false,offlineSurface:'#f4f4f4',surface:'#f4f4f4',timezone:Intl.DateTimeFormat().resolvedOptions().timeZone,onlineUserIndex:null,emojiPack:'soft',bilingualTranslation:false,translationLanguage:'English',memorySummaryEnabled:true,memorySummary:'',beautifyCss:{},beautifyBackgrounds:{online:'',offline:''},...(state.settings||{})};
+try{const categoryLanguage=new URL(location.href).searchParams.get('category-language');if(categoryLanguage==='zh'||categoryLanguage==='en')state.settings.functionButtonLanguage=categoryLanguage}catch{}
 if(!state.settings.beautifyCss||typeof state.settings.beautifyCss!=='object'||Array.isArray(state.settings.beautifyCss))state.settings.beautifyCss={};
 if(!state.settings.beautifyBackgrounds||typeof state.settings.beautifyBackgrounds!=='object'||Array.isArray(state.settings.beautifyBackgrounds))state.settings.beautifyBackgrounds={online:'',offline:''};
 state.settings.apiConfigs=Array.isArray(state.settings.apiConfigs)?state.settings.apiConfigs:[];
@@ -2534,6 +2535,7 @@ function setFunctionButtonLayout(layout){
 function applyFunctionButtonLanguage(){
  applyFunctionButtonLayout();
  const language=state.settings.functionButtonLanguage==='en'?'en':'zh',names=functionButtonNames[language];
+ try{const url=new URL(location.href);if(url.searchParams.get('category-language')!==language){url.searchParams.set('category-language',language);history.replaceState(history.state,'',url.href)}}catch{}
  window.IrisCategoryLanguage?.setLanguage(language);
  syncHomeDockAppearance();
  document.querySelectorAll('#dockFeatureMenu [data-dock-feature]').forEach(button=>{const name=names.main[button.dataset.dockFeature];if(name){button.querySelector('span:first-child').textContent=name;button.setAttribute('aria-label',name)}});
@@ -2544,6 +2546,7 @@ function applyFunctionButtonLanguage(){
 }
 function setFunctionButtonLanguage(language){
  if(!['zh','en'].includes(language))return;
+ try{const url=new URL(location.href);url.searchParams.set('category-language',language);history.replaceState(history.state,'',url.href)}catch{}
  state.settings.functionButtonLanguage=language;applyFunctionButtonLanguage();save();
 }
 function quickFeaturesMarkup(offline=state.offline){const menu={innerHTML:''};if(offline){const entries=[['arrow','退出','退出'],['write','打码','打码'],['save','保存','保存'],['trash','删除','删除']];menu.innerHTML=entries.map(([symbol,key,label])=>`<button type="button" class="quick-item ${key==='退出'?'quick-exit':''}" data-quick="${key}" aria-label="${label}"><span class="quick-icon">${icon(symbol)}</span><span>${label}</span></button>`).join('')}else{const entries=[['mic','语音','语音'],['video','视频','视频'],['image','图片','图片'],['transfer','转账','转账'],['location','定位','定位'],['music','听歌','听歌'],['book','阅读','阅读'],['favorite','聊天收藏','Favorites']];menu.innerHTML='<div class="function-button-column">'+entries.map(([symbol,key,label])=>`<button type="button" class="quick-item" data-quick="${key}" aria-label="${label}"><span class="quick-icon">${icon(symbol)}</span><span>${label}</span></button>`).join('')+`</div><div class="quick-action-row"><button type="button" class="quick-item quick-exit" data-quick="退出输入" aria-label="退出"><span class="quick-icon">${icon('arrow')}</span><span>退出</span></button><button type="button" class="quick-action-item" data-quick="清除聊天" aria-label="清空"><span class="quick-icon">${icon('clearChat')}</span><span>清空</span></button><button type="button" class="quick-action-item ${chars[state.char]?.chatSettings?.blocked?'is-blocked':''}" data-quick="拉黑好友" aria-label="${chars[state.char]?.chatSettings?.blocked?'解除拉黑':'拉黑'}"><span class="quick-icon">${icon('block')}</span><span>${chars[state.char]?.chatSettings?.blocked?'解除拉黑':'拉黑'}</span></button><button type="button" class="quick-action-item is-destructive" data-quick="删除好友" aria-label="删除"><span class="quick-icon">${icon('userX')}</span><span>删除</span></button></div>`}return menu.innerHTML}
