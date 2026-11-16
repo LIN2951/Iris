@@ -2,7 +2,7 @@
 import {execFileSync} from 'node:child_process';
 import {readFile,writeFile,mkdir,copyFile,stat,realpath,readdir} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';import path from 'node:path';
-const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),output=path.resolve(process.argv[2]||'/tmp/iris-github-test-release');
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),output=path.resolve(process.argv[2]||'/tmp/iris-public-release');
 if(output===root||output.startsWith(root+path.sep))throw Error('发布副本必须放在项目之外');
 try{if((await readdir(output)).length)throw Error('目标目录不为空，请选择新的发布目录')}catch(error){if(error.code!=='ENOENT')throw error}
 const ignoredPart=part=>['.git','.wrangler','.iris-deploy','node_modules','.aws','.codex','.agents','.DS_Store'].includes(part)||/^(?:\.env|\.dev\.vars)(?:\.|$)/.test(part)&&!part.endsWith('.example')||/\.(?:log|pem|key)$/.test(part);
