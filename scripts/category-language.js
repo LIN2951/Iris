@@ -40,7 +40,7 @@ function label(element){if(element.closest('[data-category-user-content]')||(ele
 function layoutGroup(button){
  const parent=button.parentElement;if(!parent||!/(?:tabs|subtabs|segments|categories|filters|sidebar|nav-capsule|dock|sections)/.test(parent.className||'')&&parent.getAttribute('role')!=='tablist'&&!parent.matches('nav[aria-label$="分类"],nav[aria-label$="类别"],nav[aria-label="搜索范围"]'))return;
  const buttons=Array.from(parent.children).filter(node=>node.tagName==='BUTTON'&&!node.hidden);if(buttons.length<2)return;
- const vertical=parent.classList.contains('ng-sidebar');
+ const vertical=parent.classList.contains('ng-sidebar')||parent.classList.contains('ng-extras-sidebar');
  parent.classList.add('iris-category-group');parent.dataset.categoryAxis=vertical?'vertical':'horizontal';parent.dataset.categoryOverflow='fit';parent.style.setProperty('--iris-category-count',String(buttons.length));
  buttons.forEach(node=>node.classList.add('iris-category-cell'));
 }

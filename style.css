@@ -9017,3 +9017,53 @@ body[data-iris-appearance="apple"] #authorNoticeDialog .author-notice-next{borde
 .deploy-bottom .deploy-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));flex-wrap:nowrap}
 .deploy-bottom .deploy-actions>button{box-sizing:border-box;width:100%;min-width:0;min-height:38px;margin:0;white-space:normal}
 .deploy-bottom .deploy-actions>button:only-child{grid-column:1/-1}
+
+/* Compact Ningguang navigation, independent from classic category rails. */
+#featureScreen.apple-extras .ng-extras-sidebar{display:flex!important;flex-direction:column!important;justify-content:flex-start!important;grid-auto-flow:row!important;gap:4px!important;overflow:hidden!important}
+#featureScreen.apple-extras .ng-extras-sidebar>button{flex:0 0 auto!important;min-height:60px!important;width:100%!important;flex-direction:column!important;padding:4px 0!important}
+#featureScreen:is(.apple-experiences,.apple-beautify,.apple-market,.apple-business)>.feature-page-topbar{box-sizing:border-box;min-height:60px;height:auto;margin:0;padding:10px 16px;border-bottom:1px solid #ededf1}
+#featureScreen.apple-business .perfumery-dock{position:fixed;left:50%;right:auto;bottom:var(--app-viewport-bottom,0px);z-index:9;display:flex;box-sizing:border-box;width:min(var(--app-shell-max-width,780px),100vw);max-width:100%;height:auto;min-height:60px;margin:0;padding:5px 12px max(8px,env(safe-area-inset-bottom));border:0;border-top:1px solid #e3e7ed;border-radius:0;background:#fafafcee;box-shadow:none;transform:translateX(-50%);backdrop-filter:blur(18px)}
+#featureScreen.apple-business .perfumery-dock :is(.perfumery-dock-tab,.perfumery-dock-add){height:44px;min-height:44px;border-radius:0;background:transparent;gap:3px}
+#featureScreen.apple-business .perfumery-dock :is(.perfumery-dock-tab,.perfumery-dock-add).is-active{color:#007aff;background:transparent}
+#featureScreen.apple-business .perfumery-dock :is(.perfumery-dock-tab,.perfumery-dock-add)>svg{box-sizing:content-box;width:21px;height:21px;padding:3px;border-radius:50%}
+#featureScreen.apple-business .perfumery-dock .is-active>svg{background:#eaf3ff}
+#featureScreen.apple-market .market-nav{min-height:60px}
+#featureScreen.apple-market .market-nav-capsule{height:44px}
+#featureScreen.apple-market .market-nav :is(.market-dock-tab,.market-dock-my){height:44px}
+#featureScreen:is(.apple-experiences,.apple-beautify) :is(.experiences-tabs,.beautify-tabs){box-sizing:border-box;min-height:48px!important;margin:0;padding:4px 0!important;overscroll-behavior:none}
+#featureScreen:is(.apple-experiences,.apple-beautify,.apple-market,.apple-business) .iris-category-group[data-category-axis="horizontal"]>.iris-category-cell{min-height:36px!important;padding:4px!important;border-radius:18px!important}
+#featureScreen:is(.apple-experiences,.apple-beautify,.apple-market,.apple-business) .iris-category-group[data-category-axis="horizontal"]>.iris-category-cell:is(.active,.is-active,[aria-pressed="true"],[aria-selected="true"]){background:#eaf3ff!important;color:#007aff!important;box-shadow:none!important}
+#featureScreen.apple-beautify>.feature-page-content{overscroll-behavior-y:none}
+#featureScreen.apple-experiences .people-subtabs{margin:0 0 8px;padding:0;background:transparent;border:0}
+#featureScreen.apple-experiences .people-subtabs>button{border-radius:16px!important}
+#featureScreen.apple-experiences .people-header-tools{display:flex;align-items:center;flex-wrap:wrap;gap:8px;width:100%;margin:0 0 10px;padding:8px 0;border-bottom:1px solid #ededf1}
+#featureScreen.apple-experiences .people-header-tools label{display:flex;align-items:center;gap:5px;min-width:0;font-size:11px;color:#86868e}
+#featureScreen.apple-experiences .people-header-tools select{width:auto;max-width:130px;min-height:30px;padding:4px 7px;border:0;border-radius:8px;background:#f5f5f7;color:#333;font-size:12px}
+#featureScreen.apple-experiences .people-header-tools>button{margin-left:auto;padding:5px 9px;border:0;border-radius:15px;background:#eaf3ff;color:#007aff;font-size:11px}
+#featureScreen.apple-experiences .people-award-heading{display:flex;align-items:center;justify-content:space-between;box-sizing:border-box;min-height:44px;margin:0;padding:6px 0;border:0;border-bottom:1px solid #ededf1;background:transparent}
+#featureScreen.apple-experiences .people-award-heading[hidden]{display:none}
+#featureScreen.apple-experiences .people-award-heading>span{display:flex;align-items:center;gap:8px;color:#333;font-size:13px}
+#featureScreen.apple-experiences .people-award-heading small{margin:0;font-family:inherit;font-size:12px;line-height:1.4;color:#86868e}
+#featureScreen.apple-experiences .people-award-heading>button{min-width:88px;min-height:30px;margin:0;padding:5px 9px;border:0;border-radius:15px;background:#eaf3ff;color:#007aff;font-size:11px}
+#featureScreen.apple-forum .forum-member-card{display:grid;grid-template-columns:40px minmax(0,1fr) auto;align-items:center;gap:8px;padding:12px 0}
+#featureScreen.apple-forum .forum-member-card>.forum-avatar{grid-column:1;grid-row:1}
+#featureScreen.apple-forum .forum-member-details{grid-column:2;grid-row:1;min-width:0}
+#featureScreen.apple-forum .forum-member-card>[data-forum-action="remove-member"]{grid-column:3;grid-row:1;padding:5px 9px;border:0;border-radius:15px;background:#fff0ef;color:#e45555}
+#featureScreen.apple-forum .forum-member-participation{grid-column:1/-1;margin:0;border:0}
+#featureScreen.apple-forum .forum-member-participation>summary{min-height:36px;padding:7px 0;border-bottom:1px solid #ededf1;border-radius:0;background:transparent;color:#333}
+#featureScreen.apple-forum .forum-member-participation-body{box-sizing:border-box;max-height:55dvh;padding:8px 0;background:#fff;border-radius:0;overflow:auto}
+#featureScreen.apple-forum .forum-member-participation-body .forum-member-setting{display:flex;align-items:center;justify-content:space-between;min-height:40px;padding:5px 0;border-bottom:1px solid #ededf1;color:#333;font-size:12px}
+#featureScreen.apple-forum .forum-member-participation-body select{max-width:65%;padding:6px 8px;border:0;border-radius:9px;background:#f5f5f7;color:#007aff}
+#featureScreen.apple-forum .forum-member-participation-body .forum-permissions{grid-template-columns:1fr}
+#featureScreen.apple-forum .forum-member-participation-body .forum-permissions label{display:flex;flex-direction:row-reverse;justify-content:space-between;min-height:40px;font-size:12px;color:#333}
+#featureScreen.apple-forum .forum-member-participation-body .forum-story-summary textarea{box-sizing:border-box;width:100%;height:100px;min-height:100px;padding:10px;border:1px solid #ededf1;border-radius:12px;background:#fafafa;font-family:inherit;line-height:1.7}
+#featureScreen.apple-forum .forum-member-post-link{grid-column:2/-1;justify-self:end;padding:5px 10px;border:0;border-radius:15px;background:#eaf3ff;color:#007aff}
+
+/* Business uses the same edge-to-edge bottom navigation as the marketplace. */
+#featureScreen.apple-business .perfumery-dock{position:fixed;left:50%;right:auto;bottom:var(--app-viewport-bottom,0px);z-index:9;width:min(var(--app-shell-max-width,780px),100vw);max-width:100%;height:auto;min-height:60px;margin:0;padding:4px 12px max(6px,env(safe-area-inset-bottom));border:0;border-top:1px solid #e3e7ed;border-radius:0;background:#fafafcee;box-shadow:none;transform:translateX(-50%)}
+#featureScreen.apple-business .perfumery-dock :is(.perfumery-dock-tab,.perfumery-dock-add){height:48px;border-radius:0;background:transparent}
+#featureScreen.apple-business .perfumery-dock :is(.perfumery-dock-tab,.perfumery-dock-add).is-active{color:#007aff;background:transparent}
+#featureScreen.apple-business .perfumery-dock :is(.perfumery-dock-tab,.perfumery-dock-add).is-active>svg{background:#eaf3ff;border-radius:50%}
+#featureScreen.apple-business .perfumery-dock :is(.ng-perfumery-ledger-label,.perfumery-dock-tab>span){font-size:9px;line-height:1.3}
+#featureScreen.apple-market .market-nav{min-height:60px;padding-top:4px;padding-bottom:max(6px,env(safe-area-inset-bottom))}
+#featureScreen:is(.apple-experiences,.apple-beautify,.apple-market,.apple-business)>.feature-page-topbar{box-sizing:border-box;min-height:60px;margin:0;padding:10px 16px;border-bottom:1px solid #ededf1}
