@@ -1,0 +1,42 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "iris-music-api",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-18",
+  "workers_dev": true,
+  "preview_urls": true,
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "MUSIC_STORE",
+      "id": "YOUR_KV_NAMESPACE_ID"
+    }
+  ],
+  "vars": {
+    "APP_ORIGIN": "https://iris-public.suri.us.ci",
+    "FEEDBACK_FROM": "Iris <onboarding@resend.dev>",
+    "FEEDBACK_ALLOW_LOCAL_PREVIEW": "true",
+    "FEEDBACK_ALLOWED_ORIGINS": "https://qilily740.github.io,http://iris-public.suri.us.ci",
+    "FEEDBACK_QUOTA_MODE": "estimate",
+    "FEEDBACK_QUOTA_BASELINE": "{\"day\":\"2026-10-22\",\"month\":\"2026-10\",\"dailyUsed\":1,\"monthlyUsed\":1}",
+    "MUSIC_STATS_ENABLED": "true"
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "MUSIC_STATS",
+        "class_name": "MusicStatistics"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "music-statistics-v1",
+      "new_sqlite_classes": [
+        "MusicStatistics"
+      ]
+    }
+  ]
+}

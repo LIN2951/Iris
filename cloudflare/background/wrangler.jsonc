@@ -1,0 +1,31 @@
+{
+  "$schema": "../../../node_modules/wrangler/config-schema.json",
+  "name": "iris-background",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-10-18",
+  "workers_dev": true,
+  "preview_urls": false,
+  "vars": {
+    "ALLOWED_ORIGINS": "https://iris-public.suri.us.ci,http://iris-public.suri.us.ci,https://iris.suri.us.ci,http://iris.suri.us.ci,https://qilily740.github.io",
+    "ALLOW_PUBLIC_FRONTENDS": "true",
+    "VAPID_SUBJECT": "https://iris-public.suri.us.ci",
+    "MAX_DAILY_ATTEMPTS": "24",
+    "MAX_GLOBAL_ATTEMPTS": "1000"
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "BACKGROUND",
+        "class_name": "IrisBackground"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "background-v1",
+      "new_sqlite_classes": [
+        "IrisBackground"
+      ]
+    }
+  ]
+}
