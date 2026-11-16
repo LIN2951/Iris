@@ -9045,10 +9045,12 @@ body[data-iris-appearance="apple"] #authorNoticeDialog .author-notice-next{borde
 #featureScreen.apple-experiences .people-award-heading>span{display:flex;align-items:center;gap:8px;color:#333;font-size:13px}
 #featureScreen.apple-experiences .people-award-heading small{margin:0;font-family:inherit;font-size:12px;line-height:1.4;color:#86868e}
 #featureScreen.apple-experiences .people-award-heading>button{min-width:88px;min-height:30px;margin:0;padding:5px 9px;border:0;border-radius:15px;background:#eaf3ff;color:#007aff;font-size:11px}
-#featureScreen.apple-forum .forum-member-card{display:grid;grid-template-columns:40px minmax(0,1fr) auto;align-items:center;gap:8px;padding:12px 0}
-#featureScreen.apple-forum .forum-member-card>.forum-avatar{grid-column:1;grid-row:1}
-#featureScreen.apple-forum .forum-member-details{grid-column:2;grid-row:1;min-width:0}
-#featureScreen.apple-forum .forum-member-card>[data-forum-action="remove-member"]{grid-column:3;grid-row:1;padding:5px 9px;border:0;border-radius:15px;background:#fff0ef;color:#e45555}
+#featureScreen.apple-forum .forum-member-card{display:flex;flex-direction:column;align-items:stretch;gap:0;min-width:0;padding:12px 0}
+#featureScreen.apple-forum .ng-forum-member-head{display:flex;align-items:center;gap:10px;width:100%;min-width:0}
+#featureScreen.apple-forum .ng-forum-member-head>.forum-member-details{flex:1;min-width:0}
+#featureScreen.apple-forum .ng-forum-member-head>[data-forum-action="remove-member"]{flex:none;min-height:30px;margin:0;padding:5px 9px;border:0;border-radius:15px;background:#fff0ef;color:#e45555;font-size:11px;white-space:nowrap}
+#featureScreen.apple-forum .ng-forum-member-actions{display:flex;justify-content:flex-end;gap:8px;margin:8px 0 0}
+#featureScreen.apple-forum .ng-forum-member-actions:empty{display:none}
 #featureScreen.apple-forum .forum-member-participation{grid-column:1/-1;margin:0;border:0}
 #featureScreen.apple-forum .forum-member-participation>summary{min-height:36px;padding:7px 0;border-bottom:1px solid #ededf1;border-radius:0;background:transparent;color:#333}
 #featureScreen.apple-forum .forum-member-participation-body{box-sizing:border-box;max-height:55dvh;padding:8px 0;background:#fff;border-radius:0;overflow:auto}
@@ -9067,3 +9069,12 @@ body[data-iris-appearance="apple"] #authorNoticeDialog .author-notice-next{borde
 #featureScreen.apple-business .perfumery-dock :is(.ng-perfumery-ledger-label,.perfumery-dock-tab>span){font-size:9px;line-height:1.3}
 #featureScreen.apple-market .market-nav{min-height:60px;padding-top:4px;padding-bottom:max(6px,env(safe-area-inset-bottom))}
 #featureScreen:is(.apple-experiences,.apple-beautify,.apple-market,.apple-business)>.feature-page-topbar{box-sizing:border-box;min-height:60px;margin:0;padding:10px 16px;border-bottom:1px solid #ededf1}
+
+#featureScreen.apple-business .perfumery-dock>.perfumery-dock-capsule{display:contents!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+#featureScreen.apple-forum .forum-member-name-row{display:flex;align-items:center;flex-wrap:wrap;gap:5px;min-width:0}
+#featureScreen.apple-forum .forum-member-details strong{overflow-wrap:anywhere;color:#333}
+#featureScreen.apple-forum .forum-member-participation{width:100%;min-width:0;margin-top:8px}
+#featureScreen.apple-forum .forum-member-participation>summary{height:auto;line-height:20px;box-sizing:border-box}
+#featureScreen.apple-forum .forum-member-participation-body .forum-permissions input{width:32px;height:20px;min-width:32px;min-height:20px;flex:0 0 32px}
+#featureScreen.apple-forum .forum-member-participation-body .forum-permissions input::after{width:16px;height:16px;top:2px;left:2px}
+#featureScreen.apple-forum .forum-member-participation-body .forum-permissions input:checked::after{left:14px}
