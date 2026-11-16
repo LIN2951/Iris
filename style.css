@@ -8990,3 +8990,25 @@ body[data-iris-appearance="apple"] .deploy-choice>.deploy-service-choice:checked
 #settingsScreen:not(.apple-settings) .deploy-choice small{font-size:10px}
 #settingsScreen:not(.apple-settings) .deploy-choice input{accent-color:#333}
 #settingsScreen:not(.apple-settings) .deploy-bottom>.deploy-primary{min-height:38px}
+
+/* Touch feedback must follow the rounded control, without the native gray overlay. */
+body[data-iris-appearance="apple"] :is(button,a,summary,[role="button"],label){-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+body[data-iris-appearance="apple"] :is(button,summary,[role="button"]){appearance:none;-webkit-appearance:none}
+body[data-iris-appearance="apple"] :is(button,summary,[role="button"]):focus:not(:focus-visible){outline:none;box-shadow:none}
+
+/* The four author pages share a bounded shell and an independently scrolling body. */
+#authorNoticeDialog{box-sizing:border-box;width:min(480px,calc(100vw - 28px));max-width:calc(100vw - 28px);max-height:calc(100dvh - 28px)}
+#authorNoticeDialog .author-notice-card{box-sizing:border-box;width:100%;min-width:0;height:min(650px,calc(100dvh - 30px));max-height:calc(100dvh - 30px);padding:clamp(20px,5vw,34px) clamp(18px,5vw,38px) 20px}
+#authorNoticeDialog :is(.author-notice-content,.author-notice-copy,.author-notice-confirm>span){min-width:0}
+#authorNoticeDialog .author-notice-content{padding-top:clamp(22px,5vh,42px)}
+#authorNoticeDialog .author-notice-top{gap:12px}
+#authorNoticeDialog .author-notice-brand{gap:10px;font-size:44px}
+#authorNoticeDialog .author-notice-brand>span{padding-left:10px;letter-spacing:1px}
+#authorNoticeDialog .author-notice-pagination{flex:none;white-space:nowrap}
+#authorNoticeDialog .author-notice-confirm .author-notice-qualification,#authorNoticeDialog .author-notice-refund{white-space:normal;overflow-wrap:anywhere}
+#authorNoticeDialog .author-notice-copy{outline:none}
+body[data-iris-appearance="apple"] #authorNoticeDialog{border-radius:22px}
+body[data-iris-appearance="apple"] #authorNoticeDialog .author-notice-confirm{border-radius:14px}
+body[data-iris-appearance="apple"] #authorNoticeDialog .author-notice-confirm input{appearance:none;flex:none;width:18px;height:18px;border:1px solid #c7c7cc;border-radius:50%;background:#fff}
+body[data-iris-appearance="apple"] #authorNoticeDialog .author-notice-confirm input:checked{border:5px solid #222}
+body[data-iris-appearance="apple"] #authorNoticeDialog .author-notice-next{border-radius:12px}
